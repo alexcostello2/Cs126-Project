@@ -3,7 +3,7 @@ project
 
 
 1. Follow Jacks slideshow to the part where you configure GIT 
-	You have to configure it everytime - git config user.email alex.costello@wilkes.edu || and git config user.name alexcostello2
+	You have to configure it everytime - git config user.email "alex.costello@wilkes.edu" || and git config user.name "alexcostello2"
 3. Change directories to where you want the files
 2. Clone the reposirtory by coping the link when you press code and put  - git clone LINK - in your terminal window.
 	then cd to the folder
