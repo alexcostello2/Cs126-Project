@@ -9,7 +9,7 @@ public class GUI {
     JButton b;
     JPanel panel;
 
-
+    //Basic GUI 
     GUI(){
         frame = new JFrame("Menu GUI");
 
