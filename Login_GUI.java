@@ -7,59 +7,82 @@ public class Login_GUI {
     JFrame frame; 
     JTextField username1;
     JPasswordField password1;
-    JButton b;
+    JButton loginbutton;
     JPanel panel;
     JLabel passwordLabel;
     JLabel usernameLabel;
 
     //Basic GUI git
-    Login_GUI(){
+    public Login_GUI(){
+
+        //Frame
         frame = new JFrame("Login GUI");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400,250);
+        frame.setLayout(new BorderLayout());
+
+       
+        
+       
+   
+   
+
         
         usernameLabel = new JLabel("Username:");
+
         username1 = new JTextField();
+        username1.setColumns(20);
         
+
         passwordLabel = new JLabel("Password:");
         password1 = new JPasswordField();
+        password1.setColumns(20);
         password1.setEchoChar('\u2022');
 
-        b = new JButton("Login");
+        loginbutton = new JButton("Login");
 
-        b.addActionListener(new ActionListener() {
+
+        loginbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = username1.getText();
                 char[] passwordChars = password1.getPassword();
                 String password = new String(passwordChars);
-                System.out.println("Username: " + username + ", Password: " + password);
+                if (password.equals("password")){
+                    System.out.println("Password accepted");
+                    System.exit(1);
+                }else{
+                    System.out.println("Password Invalid");
+                }
             }
         });
 
 
         // Panel
-        panel = new JPanel(new GridLayout(3,2));
+        panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets= new Insets(10, 10, 10, 10);
+        c.gridx = 0;
+        c.gridy = 0;
+        panel.add(usernameLabel, c);
+        c.gridx = 1;
+        c.gridy = 0;
+        panel.add(username1,c);
+        c.gridx = 0;
+        c.gridy = 1;
+        panel.add(passwordLabel,c);
+        c.gridx = 1;
+        c.gridy = 1;
+        panel.add(password1,c);
+        c.gridx = 0;
+        c.gridy = 2;
+        c.gridwidth = 2;
+        panel.add(loginbutton,c);
 
-        panel.add(usernameLabel);
-        panel.add(username1);
-        panel.add(passwordLabel);
-        panel.add(password1);
-        panel.add(b);
-
-        
-
-
-
-
-        //Frame
-        frame.setLayout(new BorderLayout());
 
         frame.add(panel, BorderLayout.CENTER);
 
-        frame.setSize(300,300);
         frame.setVisible(true);
-        frame.setTitle("Menu GUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
     }
-
 }
