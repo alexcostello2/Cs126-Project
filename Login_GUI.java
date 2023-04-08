@@ -22,23 +22,17 @@ public class Login_GUI {
 
 
     
+  
+        
+    //Basic GUI git
     public Login_GUI(){
-
-
         Font labelFont = new Font("Arial", Font.BOLD, 25);
+
 
         //Frame
         frame = new JFrame("Login GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,350);
-        
-    //Basic GUI git
-    public Login_GUI(){
-
-        //Frame
-        frame = new JFrame("Login GUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400,250);
 
         frame.setLayout(new BorderLayout());
 
@@ -65,6 +59,7 @@ public class Login_GUI {
         password1.setColumns(20);
         password1.setEchoChar('\u2022');
 
+        //Method so when you over entering password you can click enter instead of having to click the button
         password1.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
@@ -137,7 +132,7 @@ public class Login_GUI {
         frame.setVisible(true);
 
     }
-
+    
         //Tempory just to test the GUI in this file
      public static void main(String[] args){
         Login_GUI g = new Login_GUI();
