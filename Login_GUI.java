@@ -5,15 +5,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
+
+
 public class Login_GUI {
     JFrame frame; 
     JTextField username1;
     JPasswordField password1;
     JLabel m;
+    
+
     JButton loginbutton;
     JPanel panel;
     JLabel passwordLabel;
     JLabel usernameLabel;
+
 
 
     
@@ -26,14 +31,27 @@ public class Login_GUI {
         frame = new JFrame("Login GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,350);
+        
+    //Basic GUI git
+    public Login_GUI(){
+
+        //Frame
+        frame = new JFrame("Login GUI");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400,250);
+
         frame.setLayout(new BorderLayout());
 
        
         
        
    
+
         m = new JLabel("Test");
         m.setFont(labelFont);
+
+   
+
 
         
         usernameLabel = new JLabel("Username:");
@@ -46,6 +64,7 @@ public class Login_GUI {
         password1 = new JPasswordField();
         password1.setColumns(20);
         password1.setEchoChar('\u2022');
+
         password1.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
@@ -60,6 +79,8 @@ public class Login_GUI {
                 }
             }
         });
+
+
 
 
 
@@ -110,13 +131,16 @@ public class Login_GUI {
        
       
  
+
         frame.add(panel, BorderLayout.CENTER);
 
         frame.setVisible(true);
 
     }
 
-    public static void main(String[] args){
+        //Tempory just to test the GUI in this file
+     public static void main(String[] args){
         Login_GUI g = new Login_GUI();
     }
+
 }

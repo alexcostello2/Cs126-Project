@@ -1,6 +1,7 @@
 public class project{
     public static void main(String[] args){
-        System.out.println("testt");
+        //Call to the GUI
+        Login_GUI gui = new Login_GUI();
 
     }
 
