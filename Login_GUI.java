@@ -133,9 +133,5 @@ public class Login_GUI {
 
     }
     
-        //Tempory just to test the GUI in this file
-     public static void main(String[] args){
-        Login_GUI g = new Login_GUI();
-    }
 
 }
