@@ -7,15 +7,15 @@ import java.awt.event.KeyEvent;
 
 
 
-public class Login_GUI {
+public class signup_GUI {
     JFrame frame; 
     JTextField username1;
     JPasswordField password1;
     JLabel m;
     
 
-    JButton loginbutton;
-    JButton signupButton1;
+    JButton signupButton;
+    JButton logiButton;
     JPanel panel;
     JLabel passwordLabel;
     JLabel usernameLabel;
@@ -26,12 +26,12 @@ public class Login_GUI {
   
         
     //Basic GUI git
-    public Login_GUI(){
+    public signup_GUI(){
         Font labelFont = new Font("Arial", Font.BOLD, 25);
 
 
         //Frame
-        frame = new JFrame("Login GUI");
+        frame = new JFrame("Sign Up GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,350);
 
@@ -49,13 +49,13 @@ public class Login_GUI {
 
 
         
-        usernameLabel = new JLabel("Username:");
+        usernameLabel = new JLabel("Please enter a username:");
 
         username1 = new JTextField();
         username1.setColumns(20);
         
 
-        passwordLabel = new JLabel("Password:");
+        passwordLabel = new JLabel("Please create a password:");
         password1 = new JPasswordField();
         password1.setColumns(20);
         password1.setEchoChar('\u2022');
@@ -71,7 +71,7 @@ public class Login_GUI {
             @Override
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    loginbutton.doClick();
+                    signupButton.doClick();
                 }
             }
         });
@@ -80,37 +80,29 @@ public class Login_GUI {
 
 
 
-        signupButton1 = new JButton("Sing Up");
 
-        loginbutton = new JButton("Login");
+        logiButton = new JButton("Login");
+
+        logiButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+              Login_GUI user = new Login_GUI();
+               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+               window.dispose();       
+                    }
+        });
 
 
-        loginbutton.addActionListener(new ActionListener() {
+        signupButton = new JButton("Sign Up");
+
+
+        signupButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = username1.getText();
                 char[] passwordChars = password1.getPassword();
-                String password = new String(passwordChars);
-                if (password.equals("password")){
-                    System.out.println("Password accepted");
-                    System.exit(1);
-                }else{
-                    System.out.println("Password Invalid");
-                }
-            }
+                String password = new String(passwordChars);        
+                    }
         });
 
-
-
-        
-        signupButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               signup_GUI user = new signup_GUI();
-               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
-               window.dispose();       
-            }
-        });
-        
-      
 
         // Panel
         panel = new JPanel();
@@ -135,11 +127,11 @@ public class Login_GUI {
         c.gridx = 0;
         c.gridy = 3;
         c.gridwidth = 2;
-       panel.add(loginbutton,c);
-       c.gridx = 2;
+       panel.add(signupButton,c);
+       c.gridx=1;
        c.gridy = 3;
-       c.gridwidth = 3;
-       panel.add(signupButton1, c);
+       c.gridwidth = 2;
+       panel.add(logiButton,c);
        
       
  
@@ -151,4 +143,10 @@ public class Login_GUI {
     }
     
 
+public static void main(String [] args){
+    signup_GUI s = new signup_GUI();
 }
+
+}
+
+

@@ -42,8 +42,9 @@ public class gui {
 
         signup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               System.out.println("To be made");
-               System.exit(1);
+               signup_GUI user = new signup_GUI();
+               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+               window.dispose();    
             }
         });
 
