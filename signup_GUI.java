@@ -25,7 +25,7 @@ public class signup_GUI {
     
   
         
-    //Basic GUI git
+    
     public signup_GUI(){
         Font labelFont = new Font("Arial", Font.BOLD, 25);
 
