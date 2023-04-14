@@ -1,6 +1,6 @@
 public class project{
     public static void main(String[] args){
-        //Call to the GUI
+        // This will be the file that is ran.
         gui myGUI = new gui();
 
     }
