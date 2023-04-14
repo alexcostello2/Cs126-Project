@@ -99,7 +99,20 @@ public class signup_GUI {
             public void actionPerformed(ActionEvent e) {
                 String username = username1.getText();
                 char[] passwordChars = password1.getPassword();
-                String password = new String(passwordChars);        
+                String password = new String(passwordChars); 
+                
+                
+                UserCredentials userCredentials = new UserCredentials(username, password);
+
+                userDataFile.saveUserCredentials(userCredentials);
+
+                UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
+
+                System.out.println("Retrieved user credentials: " + retrievedUserCredentials.getUsername() + "," + retrievedUserCredentials.getPassword());
+
+
+
+
                     }
         });
 
@@ -143,9 +156,7 @@ public class signup_GUI {
     }
     
 
-public static void main(String [] args){
-    signup_GUI s = new signup_GUI();
-}
+
 
 }
 

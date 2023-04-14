@@ -25,7 +25,7 @@ public class Login_GUI {
     
   
         
-    //Basic GUI git
+    
     public Login_GUI(){
         Font labelFont = new Font("Arial", Font.BOLD, 25);
 
@@ -80,7 +80,7 @@ public class Login_GUI {
 
 
 
-        signupButton1 = new JButton("Sing Up");
+        signupButton1 = new JButton("Sign Up");
 
         loginbutton = new JButton("Login");
 
