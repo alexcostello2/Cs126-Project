@@ -108,10 +108,6 @@ public class signup_GUI {
 
                 UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
 
-                System.out.println("Retrieved user credentials: " + retrievedUserCredentials.getUsername() + "," + retrievedUserCredentials.getPassword());
-
-
-
 
                     }
         });
