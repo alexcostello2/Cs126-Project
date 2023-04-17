@@ -45,7 +45,6 @@ public class gui {
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Login_GUI user = new Login_GUI();
-               // frame.dispose();
                Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                window.dispose(); 
             }
@@ -54,7 +53,6 @@ public class gui {
         signup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 signup_GUI user = new signup_GUI();
-                //frame.dispose();
                 Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                 window.dispose(); 
             }
