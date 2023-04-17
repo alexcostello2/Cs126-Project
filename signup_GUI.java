@@ -49,7 +49,7 @@ public class signup_GUI {
        
    
 
-        m = new JLabel("Login");
+        m = new JLabel("Sign Up");
         m.setFont(labelFont);
 
    
@@ -99,7 +99,6 @@ public class signup_GUI {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
               Login_GUI user = new Login_GUI();
-              //frame.dispose(); 
               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
               window.dispose();     
                     }
