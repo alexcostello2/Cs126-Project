@@ -7,7 +7,7 @@ import java.io.IOException;
 public class userDataFile {
  
     // File path to store user credentials
-    private static final String CREDENTIALS_FILE_PATH = "user-data.txt";
+    private static final String CREDENTIALS_FILE_PATH = "user_data.txt";
  
     // Method to store user credentials to a file
     public static void saveUserCredentials(UserCredentials userCredentials) {

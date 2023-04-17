@@ -15,7 +15,7 @@ public class signup_GUI {
     
 
     JButton signupButton;
-    JButton logiButton;
+    JButton loginButton;
     JPanel panel;
     JLabel passwordLabel;
     JLabel usernameLabel;
@@ -27,14 +27,21 @@ public class signup_GUI {
         
     
     public signup_GUI(){
-        Font labelFont = new Font("Arial", Font.BOLD, 25);
+        // Set up fonts and colors
+        Font labelFont = new Font("Arial", Font.BOLD, 18);
+        Font inputFont = new Font("Arial", Font.PLAIN, 16);
+        Color backgroundColor = new Color(220, 220, 220);
+        Color buttonColor = new Color(0, 128, 255);
+        Color buttonTextColor = Color.WHITE;
 
 
         //Frame
         frame = new JFrame("Sign Up GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,350);
-
+        frame.setSize(600,350);
+        frame.getContentPane().setBackground(backgroundColor);
+        frame.setLocationRelativeTo(null); // center the frame on the screen
+        frame.setResizable(false);
         frame.setLayout(new BorderLayout());
 
        
@@ -42,7 +49,7 @@ public class signup_GUI {
        
    
 
-        m = new JLabel("Test");
+        m = new JLabel("Login");
         m.setFont(labelFont);
 
    
@@ -50,15 +57,23 @@ public class signup_GUI {
 
         
         usernameLabel = new JLabel("Please enter a username:");
+        usernameLabel.setFont(labelFont);
 
         username1 = new JTextField();
         username1.setColumns(20);
+        username1.setFont(inputFont);
+
         
 
         passwordLabel = new JLabel("Please create a password:");
+        passwordLabel.setFont(labelFont);
+
+
         password1 = new JPasswordField();
         password1.setColumns(20);
         password1.setEchoChar('\u2022');
+        password1.setFont(inputFont);
+
 
         //Method so when you over entering password you can click enter instead of having to click the button
         password1.addKeyListener(new KeyListener() {
@@ -76,23 +91,25 @@ public class signup_GUI {
             }
         });
 
+        loginButton = new JButton("Login");
+        loginButton.setBackground(buttonColor);
+        loginButton.setForeground(buttonTextColor);
+        loginButton.setFocusPainted(false);
 
-
-
-
-
-        logiButton = new JButton("Login");
-
-        logiButton.addActionListener(new ActionListener() {
+        loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
               Login_GUI user = new Login_GUI();
-               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
-               window.dispose();       
+              //frame.dispose(); 
+              Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+              window.dispose();     
                     }
         });
 
 
         signupButton = new JButton("Sign Up");
+        signupButton.setBackground(buttonColor);
+        signupButton.setForeground(buttonTextColor);
+        signupButton.setFocusPainted(false);
 
 
         signupButton.addActionListener(new ActionListener() {
@@ -108,6 +125,10 @@ public class signup_GUI {
 
                 UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
 
+              Login_GUI u = new Login_GUI();
+                
+              Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+              window.dispose(); 
 
                     }
         });
@@ -115,6 +136,7 @@ public class signup_GUI {
 
         // Panel
         panel = new JPanel();
+        panel.setBackground(backgroundColor);
         panel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.insets= new Insets(20, 20, 20, 20);
@@ -135,12 +157,12 @@ public class signup_GUI {
         panel.add(password1,c);
         c.gridx = 0;
         c.gridy = 3;
-        c.gridwidth = 2;
+        c.gridwidth = 3;
        panel.add(signupButton,c);
        c.gridx=1;
        c.gridy = 3;
-       c.gridwidth = 2;
-       panel.add(logiButton,c);
+       c.gridwidth = 3;
+       panel.add(loginButton,c);
        
       
  
