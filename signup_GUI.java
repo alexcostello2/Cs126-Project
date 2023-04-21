@@ -98,7 +98,7 @@ public class signup_GUI {
 
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-              Login_GUI user = new Login_GUI();
+              loginGUI user = new loginGUI();
               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
               window.dispose();     
                     }
@@ -124,7 +124,7 @@ public class signup_GUI {
 
                 UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
 
-              Login_GUI u = new Login_GUI();
+              loginGUI u = new loginGUI();
                 
               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
               window.dispose(); 

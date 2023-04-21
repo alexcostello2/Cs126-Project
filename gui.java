@@ -44,7 +44,7 @@ public class gui {
 
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Login_GUI user = new Login_GUI();
+                loginGUI user = new loginGUI();
                Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                window.dispose(); 
             }
