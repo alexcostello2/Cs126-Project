@@ -5,13 +5,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
-//tests gasgsef
 
 public class loginGUI {
     JFrame frame; 
     JTextField username1;
     JPasswordField password1;
-    JLabel m;
+    JLabel text;
     JButton loginbutton;
     JButton signupButton1;
     JPanel panel;
@@ -23,12 +22,13 @@ public class loginGUI {
     
   
         
-    
+    //Constructor
     public loginGUI(){
+        // Fonts
         Font titelfont = new Font("Arial", Font.BOLD, 30);
         Font labelFont = new Font("Arial", Font.BOLD, 18);
         Font inputFont = new Font("Arial", Font.BOLD, 14);
-
+        // Colors 
         Color bgColor = new Color(220, 220, 223);
         Color fgColor = new Color(0, 0, 0);
         Color btnColor = new Color(0, 128, 255);
@@ -47,9 +47,9 @@ public class loginGUI {
        
    
 
-        m = new JLabel("Welcome!");
-        m.setFont(titelfont);
-        m.setForeground(fgColor);
+        text = new JLabel("Welcome!");
+        text.setFont(titelfont);
+        text.setForeground(fgColor);
 
    
 
@@ -67,7 +67,7 @@ public class loginGUI {
 
         username1.setBorder(BorderFactory.createCompoundBorder(
             username1.getBorder(),
-            BorderFactory.createEmptyBorder(10, 10, 10, 10))); // add padding to the field
+            BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         
 
@@ -82,20 +82,20 @@ public class loginGUI {
         password1.setFont(inputFont);;
         password1.setBorder(BorderFactory.createCompoundBorder(
             password1.getBorder(),
-            BorderFactory.createEmptyBorder(10, 10, 10, 10))); // add padding to the field
+            BorderFactory.createEmptyBorder(10, 10, 10, 10))); 
 
 
 
 
         //Method so when you over entering password you can click enter instead of having to click the button
         password1.addKeyListener(new KeyListener() {
-            @Override
+            
             public void keyTyped(KeyEvent e) {}
 
-            @Override
+            
             public void keyPressed(KeyEvent e) {}
 
-            @Override
+            
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     loginbutton.doClick();
@@ -138,7 +138,9 @@ public class loginGUI {
                     if (retrievedUserCredentials != null){
                         if (retrievedUserCredentials.getPassword().equals(password)) {
                             System.out.println("Login successful!");
-                            System.exit(1);
+                            Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+                            window.dispose();
+                            RestaurantMenuGUI start = new RestaurantMenuGUI();
                         }else{
                             System.out.println("Invalid password");
                         } 
@@ -181,7 +183,7 @@ public class loginGUI {
         c.insets= new Insets(20, 20, 20, 20);
         c.gridx = 1;
         c.gridy = 0;
-        panel.add(m,c);
+        panel.add(text,c);
         c.gridx = 0;
         c.gridy = 1;
         panel.add(usernameLabel, c);
