@@ -41,7 +41,6 @@ public class signup_GUI {
         frame.setSize(600,350);
         frame.getContentPane().setBackground(backgroundColor);
         frame.setLocationRelativeTo(null); // center the frame on the screen
-        frame.setResizable(false);
         frame.setLayout(new BorderLayout());
 
        
