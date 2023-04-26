@@ -130,8 +130,11 @@ public class loginGUI {
                 String password = new String(passwordChars);
 
 
-                if(username.equals("Admin") && password.equals("AdminPassword")){
+                if(username.equals("Admin") && password.equals("Admin")){
                     System.out.println("You have succesfully logged in as an Admin!");
+                    Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+                    window.dispose();
+                    RestaurantMenuGUI start = new RestaurantMenuGUI();
                 }else{
                     UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
                 
