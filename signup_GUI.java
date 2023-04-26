@@ -38,7 +38,7 @@ public class signup_GUI {
         //Frame
         frame = new JFrame("Sign Up GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,350);
+        frame.setSize(700,600);
         frame.getContentPane().setBackground(backgroundColor);
         frame.setLocationRelativeTo(null); // center the frame on the screen
         frame.setLayout(new BorderLayout());
