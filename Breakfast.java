@@ -20,10 +20,12 @@ public Breakfast() {
     setTitle("Breakfast Menu");
     
     // Set the size of the window
-    setSize(400, 300);
+    setSize(500, 400);
+    setResizable(false);
     
     // Set the layout of the frame
     setLayout(new BorderLayout());
+    
     
     // Create the title label
     titleLabel = new JLabel("Please select your items:");
@@ -74,5 +76,5 @@ private double calculateTotalPrice() {
         }
     }
     return totalPrice;
-}
+    }
 }
