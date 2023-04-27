@@ -14,7 +14,7 @@ public class RestaurantMenuGUI extends JFrame {
         setTitle("Restaurant Menu");
 
         // Set the size of the JFrame
-        setSize(400, 300);
+        setSize(700, 550);
 
         // Set the default close operation of the JFrame to exit on close
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,8 +73,37 @@ public class RestaurantMenuGUI extends JFrame {
         // Add the "Dinner" button to the button panel
         buttonPanel.add(dinnerButton);
 
-        // Add the button panel to the center of the JFrame
-        add(buttonPanel, BorderLayout.CENTER);
+        // Create a transparent panel for the button panel
+        JPanel transparentPanel = new JPanel();
+        transparentPanel.setOpaque(false);
+        transparentPanel.add(buttonPanel);
+
+        // Create the gradient panel with the button panel inside it
+        JPanel gradientPanel = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+
+                Color color1 = new Color(255, 255, 255);
+                Color color2 = new Color(128, 128, 128);
+                GradientPaint gradient = new GradientPaint(0, 0, color1, 0, getHeight(), color2);
+                g2d.setPaint(gradient);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+            }
+        };
+        gradientPanel.add(transparentPanel, BorderLayout.CENTER);
+
+        // Move the button panel to the middle center of the transparent panel
+        transparentPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        transparentPanel.add(buttonPanel, gbc);
+
+        // Set the content pane to the gradient panel
+        setContentPane(gradientPanel);
 
         // Make the JFrame visible
         setVisible(true);
@@ -84,3 +113,4 @@ public class RestaurantMenuGUI extends JFrame {
         new RestaurantMenuGUI();
     }
 }
+
