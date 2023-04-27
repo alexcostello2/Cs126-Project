@@ -134,7 +134,7 @@ public class loginGUI {
                     System.out.println("You have succesfully logged in as an Admin!");
                     Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                     window.dispose();
-                    RestaurantMenuGUI start = new RestaurantMenuGUI();
+                    new RestaurantMenuGUI();
                 }else{
                     UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
                 
@@ -143,7 +143,7 @@ public class loginGUI {
                             System.out.println("Login successful!");
                             Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                             window.dispose();
-                            RestaurantMenuGUI start = new RestaurantMenuGUI();
+                            new RestaurantMenuGUI();
                         }else{
                             System.out.println("Invalid password");
                         } 
@@ -169,7 +169,7 @@ public class loginGUI {
         
         signupButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               signup_GUI user = new signup_GUI();
+               new signup_GUI();
                Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                window.dispose(); 
               // frame.dispose();      
@@ -180,8 +180,9 @@ public class loginGUI {
 
         // Panel
         panel = new JPanel();
-        panel.setBackground(bgColor);
         panel.setLayout(new GridBagLayout());
+        panel.setOpaque(false);
+
         GridBagConstraints c = new GridBagConstraints();
         c.insets= new Insets(20, 20, 20, 20);
         c.gridx = 1;
@@ -208,13 +209,33 @@ public class loginGUI {
        c.gridwidth = 3;
        panel.add(signupButton1, c);
        
+       JPanel transparentPanel = new JPanel(new BorderLayout());
+       transparentPanel.setOpaque(false);
+       transparentPanel.add(panel);
+       
+       // Create the gradient panel with the button panel inside it
+       JPanel gradientPanel = new JPanel(new BorderLayout()) {
+           @Override
+           protected void paintComponent(Graphics g) {
+               Graphics2D g2d = (Graphics2D) g;
+       
+               Color color1 = new Color(255, 255, 255, 0);
+               Color color2 = new Color(128, 128, 128, 255);
+               GradientPaint gradient = new GradientPaint(0, 0, color1, 0, getHeight(), color2);
+               g2d.setPaint(gradient);
+               g2d.fillRect(0, 0, getWidth(), getHeight());
+           }
+       };
+       gradientPanel.add(transparentPanel, BorderLayout.CENTER);
+       
+       // Set the gradient panel as the content pane of the JFrame
+       frame.setContentPane(gradientPanel);
+       
+       // Make the JFrame visible
+       frame.setVisible(true);
+        
+
       
- 
-
-        frame.add(panel, BorderLayout.CENTER);
-
-        frame.setVisible(true);
-
     }
     
 
