@@ -169,7 +169,7 @@ public class loginGUI {
         
         signupButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               new signup_GUI();
+               new signupGUI();
                Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                window.dispose(); 
               // frame.dispose();      

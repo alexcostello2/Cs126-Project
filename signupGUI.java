@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 
 
-public class signup_GUI {
+public class signupGUI {
     JFrame frame; 
     JTextField username1;
     JPasswordField password1;
@@ -26,7 +26,7 @@ public class signup_GUI {
   
         
     
-    public signup_GUI(){
+    public signupGUI(){
         // Set up fonts and colors
         Font labelFont = new Font("Arial", Font.BOLD, 18);
         Font inputFont = new Font("Arial", Font.PLAIN, 16);
