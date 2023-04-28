@@ -45,8 +45,7 @@ public class loginGUI {
        
         
        
-   
-
+        // Welcome Text
         text = new JLabel("Welcome!");
         text.setFont(titelfont);
         text.setForeground(fgColor);
@@ -54,12 +53,12 @@ public class loginGUI {
    
 
 
-        
+        // Username Label
         usernameLabel = new JLabel("Username:");
         usernameLabel.setForeground(fgColor);
         usernameLabel.setFont(labelFont);
 
-
+        // Username text field
         username1 = new JTextField();
         username1.setColumns(20);
         username1.setFont(inputFont);
@@ -70,15 +69,15 @@ public class loginGUI {
             BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         
-
+        // Password Label
         passwordLabel = new JLabel("Password:");
         passwordLabel.setForeground(fgColor);;
         passwordLabel.setFont(labelFont);
 
-
+        // Password text field
         password1 = new JPasswordField();
         password1.setColumns(20);
-        password1.setEchoChar('\u2022');
+        password1.setEchoChar('\u2022'); // sets it so it does no show password when typing it 
         password1.setFont(inputFont);;
         password1.setBorder(BorderFactory.createCompoundBorder(
             password1.getBorder(),
@@ -106,14 +105,14 @@ public class loginGUI {
 
 
 
-
+        // Signup Button
         signupButton1 = new JButton("Sign Up");
         signupButton1.setBackground(btnColor);
         signupButton1.setForeground(fgColor);
         signupButton1.setFocusPainted(false);
         signupButton1.setFont(inputFont);
 
-
+        // Login Button
         loginbutton = new JButton("Login");
         loginbutton.setBackground(btnColor);
         loginbutton.setForeground(fgColor);
@@ -121,7 +120,7 @@ public class loginGUI {
         loginbutton.setFocusPainted(false);
 
 
-
+        // Adding Action for when you press Login
         loginbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = username1.getText();
@@ -130,13 +129,13 @@ public class loginGUI {
                 String password = new String(passwordChars);
 
 
-                if(username.equals("Admin") && password.equals("Admin")){
+                if(username.equals("Admin") && password.equals("Admin")){  // Used to bypass sign in system for owners
                     System.out.println("You have succesfully logged in as an Admin!");
-                    Window window = SwingUtilities.windowForComponent((Component) e.getSource());
+                    Window window = SwingUtilities.windowForComponent((Component) e.getSource()); // closing frame to open new GUI
                     window.dispose();
-                    new RestaurantMenuGUI();
+                    new RestaurantMenuGUI(); // Call to the main menu GUI 
                 }else{
-                    UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);
+                    UserCredentials retrievedUserCredentials = userDataFile.getUserCredentials(username);  
                 
                     if (retrievedUserCredentials != null){
                         if (retrievedUserCredentials.getPassword().equals(password)) {
@@ -166,13 +165,12 @@ public class loginGUI {
 
 
 
-        
+        // Action when you press sign up button it takes you to sign up GUI
         signupButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                new signupGUI();
                Window window = SwingUtilities.windowForComponent((Component) e.getSource());
                window.dispose(); 
-              // frame.dispose();      
             }
         });
         
@@ -183,6 +181,8 @@ public class loginGUI {
         panel.setLayout(new GridBagLayout());
         panel.setOpaque(false);
 
+
+        // Adding Everything
         GridBagConstraints c = new GridBagConstraints();
         c.insets= new Insets(20, 20, 20, 20);
         c.gridx = 1;
