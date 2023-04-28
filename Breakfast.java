@@ -27,7 +27,7 @@ public class Breakfast extends JFrame implements ActionListener {
 
         // Set the size of the window
         setSize(500, 400);
-        setResizable(false);
+        setResizable(false);  // cannot change the size of the window
 
         // Set the layout of the frame
         setLayout(new BorderLayout());
