@@ -12,8 +12,6 @@ public class signupGUI {
     JTextField username1;
     JPasswordField password1;
     JLabel m;
-    
-
     JButton signupButton;
     JButton loginButton;
     JPanel panel;
@@ -21,11 +19,6 @@ public class signupGUI {
     JLabel usernameLabel;
 
 
-
-    
-  
-        
-    
     public signupGUI(){
         // Set up fonts and colors
         Font labelFont = new Font("Arial", Font.BOLD, 18);
@@ -47,30 +40,29 @@ public class signupGUI {
         
        
    
-
+        // Signup Label
         m = new JLabel("Sign Up");
         m.setFont(labelFont);
 
    
 
 
-        
+        // Username Label
         usernameLabel = new JLabel("Please enter a username:");
         usernameLabel.setFont(labelFont);
-
+        // Username Text Field
         username1 = new JTextField();
         username1.setColumns(20);
         username1.setFont(inputFont);
 
-        
-
+        // Password Label
         passwordLabel = new JLabel("Please create a password:");
         passwordLabel.setFont(labelFont);
 
-
+        // Password text field
         password1 = new JPasswordField();
         password1.setColumns(20);
-        password1.setEchoChar('\u2022');
+        password1.setEchoChar('\u2022'); // makes it so you can't see password
         password1.setFont(inputFont);
 
 
@@ -88,26 +80,29 @@ public class signupGUI {
             }
         });
 
+
+        // Login Button
         loginButton = new JButton("Login");
         loginButton.setBackground(buttonColor);
         loginButton.setForeground(buttonTextColor);
         loginButton.setFocusPainted(false);
 
+        // Adding action to login button
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-              new loginGUI();
+              new loginGUI(); // Call to Login GUI
               Window window = SwingUtilities.windowForComponent((Component) e.getSource());
               window.dispose();     
                     }
         });
 
-
+        // Signup Button
         signupButton = new JButton("Sign Up");
         signupButton.setBackground(buttonColor);
         signupButton.setForeground(buttonTextColor);
         signupButton.setFocusPainted(false);
 
-
+        // Addinga action to Signup Button
         signupButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = username1.getText();
@@ -115,7 +110,7 @@ public class signupGUI {
                 String password = new String(passwordChars); 
                 
                 
-                UserCredentials userCredentials = new UserCredentials(username, password);
+                UserCredentials userCredentials = new UserCredentials(username, password); // puts username and password into file
 
                 userDataFile.saveUserCredentials(userCredentials);
 
@@ -134,7 +129,7 @@ public class signupGUI {
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         panel.setOpaque(false);
-        
+        // Adding everything to Panel
         GridBagConstraints c = new GridBagConstraints();
         c.insets= new Insets(20, 20, 20, 20);
         c.gridx = 1;
@@ -197,5 +192,6 @@ frame.setVisible(true);
 
 
 }
+
 
 
