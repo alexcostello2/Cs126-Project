@@ -12,6 +12,7 @@ public class gui {
 
     public gui(){
         Font labelFont = new Font("Arial", Font.BOLD, 32);
+        // Frame setup
         frame = new JFrame("Welcome");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
@@ -19,13 +20,13 @@ public class gui {
         frame.setResizable(false);
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(new Color(255, 165, 0));
-
+        // Welcome Text
         p = new JLabel("Welcome!");
         p.setFont(labelFont);
         p.setForeground(new Color(235, 52, 88));
         p.setHorizontalAlignment(JLabel.CENTER);
         p.setBorder(BorderFactory.createEmptyBorder(40, 0, 20, 0));
-
+        // Login button setup
         login = new JButton("Login");
         login.setPreferredSize(new Dimension(150, 50));
         login.setFont(new Font("Arial", Font.BOLD, 20));
@@ -33,7 +34,7 @@ public class gui {
         login.setForeground(Color.white);
         login.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         login.setFocusPainted(false);
-
+        // Signup button setup
         signup = new JButton("Sign Up");
         signup.setPreferredSize(new Dimension(150, 50));
         signup.setFont(new Font("Arial", Font.BOLD, 20));
@@ -42,6 +43,7 @@ public class gui {
         signup.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         signup.setFocusPainted(false);
 
+        // When you press the login in button it takes you to login GUI
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                new loginGUI();
@@ -49,7 +51,7 @@ public class gui {
                window.dispose(); 
             }
         });
-
+        // When you press signup button it takes you to signup GUI
         signup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new signupGUI();
@@ -61,11 +63,12 @@ public class gui {
 
       
        
-        // Create a transparent panel for the button panel
+    // Create a transparent panel for the button panel
     JPanel panel = new JPanel();
     panel.setLayout(new GridBagLayout());
     panel.setOpaque(false);
-
+    
+    // Adding everything
     GridBagConstraints c = new GridBagConstraints();
     c.gridx = 0;
     c.gridy = 0;
@@ -110,3 +113,4 @@ public class gui {
 }  
 
 }
+
