@@ -20,7 +20,7 @@ public class gui {
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(new Color(255, 165, 0));
 
-        p = new JLabel("Welcome to our app");
+        p = new JLabel("Welcome!");
         p.setFont(labelFont);
         p.setForeground(new Color(235, 52, 88));
         p.setHorizontalAlignment(JLabel.CENTER);
