@@ -7,13 +7,17 @@ public class Lunch extends JFrame implements ActionListener {
     // Declare the menu items and prices
     private JCheckBox[] menuItems;
     private double[] menuPrices = {8.99, 10.99, 12.99, 7.99, 6.99};
-
+    
+    // Declare the tipping percentages
+    private JComboBox<String> tipComboBox;
+    private double[] tipPercentages = {0, 0.10, 0.15, 0.20};
+    
     // Declare the GUI components
     private JLabel titleLabel;
     private JPanel menuPanel;
     private JLabel totalPriceLabel;
     private JButton checkoutButton;
-
+    
     // Constructor
     public Lunch() {
         // Set the window title
@@ -47,6 +51,18 @@ public class Lunch extends JFrame implements ActionListener {
             menuPanel.add(menuItems[i]);
         }
         
+        // Create the tipping system
+        JPanel tipPanel = new JPanel(new FlowLayout());
+        JLabel tipLabel = new JLabel("Tip:");
+        tipLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        tipPanel.add(tipLabel);
+        String[] tipOptions = {"0%", "10%", "15%", "20%"};
+        tipComboBox = new JComboBox<>(tipOptions);
+        tipComboBox.setFont(new Font("Arial", Font.PLAIN, 16));
+        tipComboBox.addActionListener(this);
+        tipPanel.add(tipComboBox);
+        add(tipPanel, BorderLayout.WEST);
+        
         // Create the total price label
         totalPriceLabel = new JLabel("Total Price: $0.00");
         totalPriceLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -59,7 +75,8 @@ public class Lunch extends JFrame implements ActionListener {
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Display a message box with the total price
-                JOptionPane.showMessageDialog(Lunch.this, "Your total price is: $" + calculateTotalPrice());
+                Double price = calculateTotalPrice();
+                JOptionPane.showMessageDialog(Lunch.this, "Your total price is: $" + String.format("%.2f", price));
             }
         });
         add(checkoutButton, BorderLayout.EAST);
@@ -70,7 +87,10 @@ public class Lunch extends JFrame implements ActionListener {
         // Make the window visible
         setVisible(true);
     }
-    
+
+
+
+
     // Implement the actionPerformed method for the ActionListener interface
     public void actionPerformed(ActionEvent e) {
         // Update the total price label
@@ -79,15 +99,19 @@ public class Lunch extends JFrame implements ActionListener {
     }
     
     // Calculate the total price of the selected menu items
-    private double calculateTotalPrice() {
-        double totalPrice = 0;
-        for (int i = 0; i < menuItems.length; i++) {
-            if (menuItems[i].isSelected()) {
-                totalPrice += menuPrices[i];
-            }
+   private double calculateTotalPrice() {
+    double totalPrice = 0;
+    for (int i = 0; i < menuItems.length; i++) {
+        if (menuItems[i].isSelected()) {
+            totalPrice += menuPrices[i];
         }
-        return totalPrice;
     }
+    double tipPercentage = tipPercentages[tipComboBox.getSelectedIndex()];
+    double tipAmount = totalPrice * tipPercentage;
+    totalPrice += tipAmount;
+    return totalPrice;
+}
+
     
     // Main method to run the program
     public static void main(String[] args) {

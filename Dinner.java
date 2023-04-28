@@ -14,6 +14,12 @@ public class Dinner extends JFrame implements ActionListener {
     private JLabel totalPriceLabel;
     private JButton checkoutButton;
 
+
+    // Declare the tipping percentages
+    private JComboBox<String> tipComboBox;
+     private double[] tipPercentages = {0, 0.10, 0.15, 0.20};
+       
+
     // Constructor
     public Dinner() {
         // Set the window title
@@ -47,6 +53,19 @@ public class Dinner extends JFrame implements ActionListener {
             menuPanel.add(menuItems[i]);
         }
         
+
+        // Create the tipping system
+        JPanel tipPanel = new JPanel(new FlowLayout());
+        JLabel tipLabel = new JLabel("Tip:");
+        tipLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        tipPanel.add(tipLabel);
+        String[] tipOptions = {"0%", "10%", "15%", "20%"};
+        tipComboBox = new JComboBox<>(tipOptions);
+        tipComboBox.setFont(new Font("Arial", Font.PLAIN, 16));
+        tipComboBox.addActionListener(this);
+        tipPanel.add(tipComboBox);
+        add(tipPanel, BorderLayout.WEST);
+
         // Create the total price label
         totalPriceLabel = new JLabel("Total Price: $0.00");
         totalPriceLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -58,7 +77,8 @@ public class Dinner extends JFrame implements ActionListener {
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Display a message box with the total price
-                JOptionPane.showMessageDialog(Dinner.this, "Your total price is: $" + calculateTotalPrice(), "Total Price", JOptionPane.INFORMATION_MESSAGE);
+                Double price = calculateTotalPrice();
+                JOptionPane.showMessageDialog(Dinner.this, "Your total price is: $" + String.format("%.2f", price));
             }
         });
         add(checkoutButton, BorderLayout.EAST);
@@ -77,14 +97,17 @@ public class Dinner extends JFrame implements ActionListener {
         totalPriceLabel.setText("Total Price: $" + String.format("%.2f", totalPrice));
     }
     
-    // Calculate the total price of the selected menu items
-    private double calculateTotalPrice() {
+     // Calculate the total price of the selected menu items
+     private double calculateTotalPrice() {
         double totalPrice = 0;
         for (int i = 0; i < menuItems.length; i++) {
             if (menuItems[i].isSelected()) {
                 totalPrice += menuPrices[i];
             }
         }
+        double tipPercentage = tipPercentages[tipComboBox.getSelectedIndex()];
+        double tipAmount = totalPrice * tipPercentage;
+        totalPrice += tipAmount;
         return totalPrice;
     }
     
