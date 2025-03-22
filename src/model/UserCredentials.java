@@ -1,3 +1,10 @@
+package model;
+import gui.Breakfast;
+import gui.Lunch;
+import gui.Dinner;
+import model.UserCredentials;
+import model.userDataFile;
+
 // This file will store the usernames and passwords
 
 public class UserCredentials {

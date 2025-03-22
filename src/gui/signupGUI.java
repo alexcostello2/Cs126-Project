@@ -1,3 +1,5 @@
+package gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,6 +8,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 
+import gui.Breakfast;
+import gui.Lunch;
+import gui.Dinner;
+import model.UserCredentials;
+import model.userDataFile;
 
 public class signupGUI {
     JFrame frame; 

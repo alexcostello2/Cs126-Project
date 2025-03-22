@@ -1,9 +1,17 @@
+package model;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
- 
+
+import gui.Breakfast;
+import gui.Lunch;
+import gui.Dinner;
+import model.UserCredentials;
+import model.userDataFile;
+
 public class userDataFile {
  
     // File path to store username and password

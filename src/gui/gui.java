@@ -1,3 +1,12 @@
+package gui;
+
+
+import gui.Breakfast;
+import gui.Lunch;
+import gui.Dinner;
+import model.UserCredentials;
+import model.userDataFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
