@@ -6,15 +6,15 @@ import javax.swing.*;
 
 public class Lunch extends JFrame implements ActionListener {
 
-    // Declare the menu items and prices
+   
     private JCheckBox[] menuItems;
     private double[] menuPrices = {8.99, 10.99, 12.99, 7.99, 6.99};
     
-    // Declare the tipping percentages
+
     private JComboBox<String> tipComboBox;
     private double[] tipPercentages = {0, 0.10, 0.15, 0.20};
-    
-    // Declare the GUI components
+ 
+
     private JLabel titleLabel;
     private JPanel menuPanel;
     private JLabel totalPriceLabel;
@@ -22,10 +22,9 @@ public class Lunch extends JFrame implements ActionListener {
     
     // Constructor
     public Lunch() {
-        // Set the window title
+       
         setTitle("Lunch Menu");
         
-        // Set the size of the window
         setSize(500, 400);
         
         // Set the layout of the frame
@@ -114,8 +113,6 @@ public class Lunch extends JFrame implements ActionListener {
     return totalPrice;
 }
 
-    
-    // Main method to run the program
     public static void main(String[] args) {
         new Lunch();
     }

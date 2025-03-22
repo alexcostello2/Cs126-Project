@@ -6,7 +6,6 @@ import gui.Lunch;
 import gui.Dinner;
 import model.UserCredentials;
 import model.userDataFile;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -52,7 +51,7 @@ public class gui {
         signup.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         signup.setFocusPainted(false);
 
-        // When you press the login in button it takes you to login GUI
+  
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                new loginGUI();
@@ -60,7 +59,7 @@ public class gui {
                window.dispose(); 
             }
         });
-        // When you press signup button it takes you to signup GUI
+   
         signup.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new signupGUI();
@@ -72,7 +71,7 @@ public class gui {
 
       
        
-    // Create a transparent panel for the button panel
+
     JPanel panel = new JPanel();
     panel.setLayout(new GridBagLayout());
     panel.setOpaque(false);

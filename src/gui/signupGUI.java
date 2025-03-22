@@ -185,10 +185,10 @@ JPanel gradientPanel = new JPanel(new BorderLayout()) {
 };
 gradientPanel.add(transparentPanel, BorderLayout.CENTER);
 
-// Set the gradient panel as the content pane of the JFrame
+
 frame.setContentPane(gradientPanel);
 
-// Make the JFrame visible
+
 frame.setVisible(true);
  
 

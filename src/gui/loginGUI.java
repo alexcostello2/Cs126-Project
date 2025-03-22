@@ -28,11 +28,11 @@ public class loginGUI {
         
     //Constructor
     public loginGUI(){
-        // Fonts
+    
         Font titelfont = new Font("Arial", Font.BOLD, 30);
         Font labelFont = new Font("Arial", Font.BOLD, 18);
         Font inputFont = new Font("Arial", Font.BOLD, 14);
-        // Colors 
+
         Color bgColor = new Color(220, 220, 223);
         Color fgColor = new Color(0, 0, 0);
         Color btnColor = new Color(0, 128, 255);

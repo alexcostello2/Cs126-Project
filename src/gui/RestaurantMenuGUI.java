@@ -22,10 +22,9 @@ public class RestaurantMenuGUI extends JFrame {
     private JButton dinnerButton;
 
     public RestaurantMenuGUI() {
-        // Set the title of the JFrame
         setTitle("Restaurant Menu");
 
-        // Set the size of the JFrame
+
         setSize(700, 550);
 
         // Set the default close operation of the JFrame to exit on close
@@ -44,7 +43,6 @@ public class RestaurantMenuGUI extends JFrame {
         breakfastButton.setBackground(new Color(211, 47, 47));
         breakfastButton.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
 
-        // Add an ActionListener to the "Breakfast" button
         breakfastButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Create a new instance of the Breakfast class
@@ -67,23 +65,22 @@ public class RestaurantMenuGUI extends JFrame {
         // Add an action listener to the lunchButton
         lunchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Open the Lunch frame
                 Lunch lunchFrame = new Lunch();
                 lunchFrame.setVisible(true);
             }
         });
 
-        // Add the "Lunch" button to the button panel
+        // Add the Lunch button to the button panel
         buttonPanel.add(lunchButton);
 
-        // Create the "Dinner" button
+        // Create the Dinner button
         dinnerButton = new JButton("Dinner");
         dinnerButton.setFont(new Font("Helvetica Neue", Font.BOLD, 24));
         dinnerButton.setForeground(new Color(255, 255, 255));
         dinnerButton.setBackground(new Color(76, 175, 80));
         dinnerButton.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
         
-        // Add an ActionListener to the "Dinner" button
+        // Add an ActionListener to the Dinner button
         dinnerButton.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
         // Open the Dinner frame
@@ -92,7 +89,7 @@ public class RestaurantMenuGUI extends JFrame {
         }
         });
         
-        // Add the "Dinner" button to the button panel
+        // Add the Dinner button to the button panel
         buttonPanel.add(dinnerButton);
         
         // Create a transparent panel for the button panel
@@ -100,7 +97,7 @@ public class RestaurantMenuGUI extends JFrame {
         transparentPanel.setOpaque(false);
         transparentPanel.add(buttonPanel);
         
-        // Create the gradient panel with the button panel inside it
+
         JPanel gradientPanel = new JPanel(new BorderLayout()) {
         @Override
         protected void paintComponent(Graphics g) {
@@ -147,7 +144,7 @@ public class RestaurantMenuGUI extends JFrame {
         // Set the content pane to the gradient panel
         setContentPane(gradientPanel);
         
-        // Make the JFrame visible
+
         setVisible(true);
         }
 
