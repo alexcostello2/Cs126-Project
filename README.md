@@ -4,7 +4,7 @@
 
    
 1. **Compile the Code**
-   - Open a terminal or command prompt in the root directory of your project.
+   - Open a terminal
    - Compile the Java files:
      ```bash
      javac -d bin src/**/*.java
@@ -12,7 +12,7 @@
 
 ## Running the Program
 
-To run the application, execute the `project` class:
+Execute the `project` class:
 
 2. **Run the Application**
     ```bash
