@@ -1,9 +1,5 @@
 # Cs126 Project
 
-## Overview
-
-This project is a Java-based application that allows users to interact with a restaurant menu system and manage user credentials. It includes a sign-up and login system for authentication and displays restaurant menu items.
-
 ## Installation
 
 1. **Clone the Repository**
@@ -34,5 +30,9 @@ To run the application, execute the `project` class:
     ```bash
     java -cp bin gui.Project
     ```
+
+
+    ## Project Finished: April 28th 2023
+   ## Updated to organize code March 2025
 
 
